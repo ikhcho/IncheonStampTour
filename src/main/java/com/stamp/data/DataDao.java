@@ -7,15 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-@Repository("festivalDao")
-public class FestivalDao {
+@Repository("dataDao")
+public class DataDao {
 
 	@Autowired
 	@Qualifier("sqlSessionTemplate")
 	private SqlSessionTemplate template;
 
-	public List<FestivalVo> SearchFestival() {
+	public List<FestivalVo> SearchFestival(String month) {
 		// TODO Auto-generated method stub
-		return template.selectList("stamp.searchFestival");
+		return template.selectList("stamp.searchFestival",month);
+	}
+	
+	public List<CultureVo> SearchCulture(String month) {
+		// TODO Auto-generated method stub
+		return template.selectList("stamp.searchCulture",month);
 	}
 }

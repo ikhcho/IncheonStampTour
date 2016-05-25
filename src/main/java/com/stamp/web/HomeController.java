@@ -1,9 +1,7 @@
 package com.stamp.web;
 
 import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 
 import org.slf4j.Logger;
@@ -24,7 +22,8 @@ import com.stamp.member.LoginService;
 import com.stamp.stamp.StampVo;
 import com.stamp.stamp.StampService;
 import com.stamp.data.FestivalVo;
-import com.stamp.data.FestivalService;
+import com.stamp.data.CultureVo;
+import com.stamp.data.DataService;
 
 @Controller
 public class HomeController {
@@ -37,8 +36,8 @@ public class HomeController {
 	StampService sService;
 	
 	@Autowired
-	@Qualifier("festivalService")
-	FestivalService fService;
+	@Qualifier("dataService")
+	DataService dService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -99,10 +98,15 @@ public class HomeController {
 			
 			@RequestMapping(value="/festival" , method=RequestMethod.GET)
 			public ModelAndView festival(FestivalVo fv){
-				List<FestivalVo> LFV = fService.SearchFestival();
+				Calendar cal = Calendar.getInstance();
+				String month = String.valueOf(cal.get(Calendar.MONTH)+1);
+				String culturemonth = "0"+month;
+				List<FestivalVo> LFV = dService.SearchFestival(month);
+				List<CultureVo> CFV = dService.SearchCulture(culturemonth);
 				//System.out.println(LFV.get(0).getTitle());
 				ModelAndView mv = new ModelAndView();
 				mv.addObject("fv", LFV);
+				mv.addObject("cv", CFV);
 				mv.setViewName("festival");
 				return mv;
 			}

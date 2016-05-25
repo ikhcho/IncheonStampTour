@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.*" %>
 <%@ page import="com.stamp.data.FestivalVo" %>
-
-<% List<FestivalVo> fv = (List<FestivalVo>) request.getAttribute("fv");%>
+<%@ page import="com.stamp.data.CultureVo" %>
+<% 
+	List<FestivalVo> fv = (List<FestivalVo>) request.getAttribute("fv");
+	List<CultureVo> cv = (List<CultureVo>) request.getAttribute("cv");
+	Calendar cal = Calendar.getInstance();
+%>
 
 <!DOCTYPE html>
 <html>
@@ -45,15 +49,15 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-4 col-md-offset-4">
 					<center>
-						축제페이지입니다.
+						<%=cal.get(Calendar.MONTH)+1 %>월  축제페이지입니다.
 						
 						<!--<c:forEach var="val" items="${fv}">
 						 	<div>${val.title} , ${val.link} , ${val.organ}</div>
-						</c:forEach> -->
+						</c:forEach>-->
 						
 						<div>
-						<% out.println(fv.get(1).getTitle());%></div>
-						 
+						축제 : <% out.println(fv.get(1).getTitle());%>
+						행사 : <% out.println(cv.get(1).getTitle());%></div>
 					</center>
 				</div>
 			</div>
