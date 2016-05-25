@@ -120,6 +120,11 @@ public class HomeController {
 			public String home(){
 				return "home";
 			}
+			
+			@RequestMapping(value="/place")
+			public String place(){
+				return "place";
+			}
 	
 			@RequestMapping(value="/stamp" , method=RequestMethod.GET)
 			public ModelAndView stamp(){

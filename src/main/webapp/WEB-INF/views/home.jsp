@@ -133,7 +133,7 @@
 		<div data-role="content" data-inset="true" id="manubox">
 			<div>
 				<div style="float: left; width: 50%;" id="place">
-						<a href="<%=request.getContextPath()%>/home">
+						<a href="<%=request.getContextPath()%>/place">
 						<img src=resources/img/place.jpg style="width: 100%"></a>
 				</div>
 				<div style="float: right; width:50%;" id="course">
