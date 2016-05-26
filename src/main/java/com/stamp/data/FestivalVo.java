@@ -4,9 +4,7 @@ public class FestivalVo {
 	private String title;
 	private String link;
 	private String organ;
-	private String period;
 	private String tel;
-	private String description;
 	public String getTitle() {
 		return title;
 	}
@@ -25,22 +23,12 @@ public class FestivalVo {
 	public void setOrgan(String organ) {
 		this.organ = organ;
 	}
-	public String getPeriod() {
-		return period;
-	}
-	public void setPeriod(String period) {
-		this.period = period;
-	}
+	
 	public String getTel() {
 		return tel;
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 }

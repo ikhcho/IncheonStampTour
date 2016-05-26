@@ -96,7 +96,7 @@ public class HomeController {
 				return "history";
 			}
 			
-			@RequestMapping(value="/festival" , method=RequestMethod.GET)
+			@RequestMapping(value="festival" , method=RequestMethod.GET)
 			public ModelAndView festival(FestivalVo fv){
 				Calendar cal = Calendar.getInstance();
 				String month = String.valueOf(cal.get(Calendar.MONTH)+1);
@@ -125,6 +125,8 @@ public class HomeController {
 			public String place(){
 				return "place";
 			}
+			
+			
 	
 			@RequestMapping(value="/stamp" , method=RequestMethod.GET)
 			public ModelAndView stamp(){

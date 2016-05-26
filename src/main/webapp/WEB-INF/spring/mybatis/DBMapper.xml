@@ -30,14 +30,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="searchFestival" parameterType="String" resultType="com.stamp.data.FestivalVo">
-		SELECT title, link, organ, period, tel, description
+		SELECT title, link, organ, tel
 		FROM festival
 		WHERE substring(period, 4, 1)=#{month}
 	</select>
 	
 	<select id="searchCulture" parameterType="String" resultType="com.stamp.data.CultureVo">
 		<![CDATA[ 
-		SELECT title, link, category, sdate, edate, place, fee_case, fee, tel, homepage, poster, posterThumb, description
+		SELECT title, link, place, fee, tel, poster, posterThumb
 		FROM culture
 		WHERE substring(sdate, 5, 2)<=#{month} and substring(edate, 5, 2)>=#{month}
 		]]> 
