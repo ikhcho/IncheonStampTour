@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="stamp">
+	<!-- Main -->
+<!-- 	<select id="slider" resultType="realfarm.spring.gallery.GalleryVo">
+		SELECT url 
+		FROM picture 
+		ORDER BY pnum DESC 
+		limit 6;
+	</select> -->
+	
+	<select id="searchAccount" parameterType="String" resultType="com.stamp.member.LoginVo">
+		SELECT id, password
+		FROM account
+		WHERE id=#{id}
+	</select>
+	
+	<insert id="saveStamp" parameterType="com.stamp.stamp.StampVo">
+		INSERT INTO stamp(stampNum)
+		VALUES (#{stampNUM})
+	</insert>
+	
+	<select id="searchStamp" parameterType="String" resultType="com.stamp.stamp.StampVo">
+		SELECT Sid, stampNUM
+		FROM stamp
+		WHERE Sid=#{Sid}
+	</select>
+	
+	<select id="searchFestival" parameterType="String" resultType="com.stamp.data.FestivalVo">
+		SELECT title, link, organ, tel
+		FROM festival
+		WHERE substring(period, 4, 1)=#{month}
+	</select>
+	
+	<select id="searchCulture" parameterType="String" resultType="com.stamp.data.CultureVo">
+		<![CDATA[ 
+		SELECT title, link, place, fee, tel, poster, posterThumb
+		FROM culture
+		WHERE substring(sdate, 5, 2)<=#{month} and substring(edate, 5, 2)>=#{month}
+		]]> 
+	</select>
+	
+	<select id="searchHistory" parameterType="String" resultType="com.stamp.data.HistoryVo">
+		<![CDATA[ 
+		SELECT date, summary
+		FROM history
+		WHERE substring(date, 1, 4)>=substring(#{date},1,4) and substring(date, 1, 4)<=substring(#{date},5,4)
+		]]> 
+	</select>
+	
+	<!-- 
+	<delete id="deleteCalendar" parameterType="int">
+		DELETE FROM calendar
+		WHERE snum=#{num}
+	</delete> -->
+   
+</mapper>
