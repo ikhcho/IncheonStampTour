@@ -12,7 +12,8 @@
 	String mem_name = request.getParameter("mem_name");
 	String mem_email = request.getParameter("mem_email");
 	String mem_phone = request.getParameter("mem_phone");
-	
+	String Sid = request.getParameter("mem_id");
+	int stampNum = 0;
 	
 	String query = new String ();
 	Connection conn = null;
@@ -40,11 +41,23 @@
 					pstmt.setString(3,mem_name);
 					pstmt.setString(4,mem_email);
 					pstmt.setString(5,mem_phone);
-					
 					pstmt.executeUpdate();
 			}catch(SQLException e){
 				out.println("<scrpt>alert('가입처리가 되지 않았습니다. 다시 시도해 주세요.'); history.back();</script>");
-			}finally{
+			}
+			try {
+				conn= DriverManager.getConnection("jdbc:mysql://127.0.0.1/stamptour?useUnicode=true&characterEncoding=euckr","root","admin");
+				stmt = conn.createStatement();
+					query = "insert into stamp values( ?,?)";
+					pstmt = conn.prepareStatement(query);
+					
+					pstmt.setString(1,Sid);
+					pstmt.setInt(2,stampNum);
+					pstmt.executeUpdate();
+			}catch(SQLException e){
+				out.println("<scrpt>alert('가입처리가 되지 않았습니다. 다시 시도해 주세요.'); history.back();</script>");
+			}			
+			finally{
 					conn.close();
 				}
 		}

@@ -53,7 +53,7 @@
 </head>
 <body>
 <div data-role="page" data-theme="a" id="background" height="wrapped">
-		<div class="container">
+		<div style="width:80%"class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-4 col-md-offset-4">
 					<center>
@@ -62,7 +62,7 @@
 						<br/>
 						<div id="stamp">
 							<div style="margin-bottom:5px">
-							<h4 align="center"> ${sv.getSID()} 회원님은 <br/>
+							<h4 align="center"> <%out.println(session.getAttribute("Sid"));%> 회원님은 <br/>
 								현재 ${sv.getStampNum()}개의 스탬프가 있습니다.</h4>
 							</div>
 							<div style="margin-top:10px;">
@@ -77,6 +77,7 @@
 							</div>
 							<br/>
 							<div >
+							
 								<h4>스탬프는 각종 할인 및 증정품에 사용가능합니다.</h4>
 								<br/>
 							</div>
@@ -88,10 +89,11 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a class="ui-btn-active"
-						href="<%=request.getContextPath()%>/">로그인</a></li>
+					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/">
+					<%if(session.getAttribute("Sid").equals("noid")){ %>로그인<%}else{%>로그아웃<%}%>
+					</a></li>
 					<li><a href="<%=request.getContextPath()%>/history">역사</a></li>
-					<li><a href="<%=request.getContextPath()%>/home">홈</a></li>
+					<li><a href="<%=request.getContextPath()%>/home?Sid=<%=session.getAttribute("Sid") %>">홈</a></li>
 					<li><a href="<%=request.getContextPath()%>/festival?redirection=festival">축제</a></li>
 					<li><a href="<%=request.getContextPath()%>/board">게시판</a></li>
 				</ul>

@@ -3,7 +3,6 @@ package com.stamp.web;
 import java.text.DateFormat;
 import java.util.*;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,7 @@ import com.stamp.stamp.StampVo;
 import com.stamp.stamp.StampService;
 import com.stamp.data.FestivalVo;
 import com.stamp.data.CultureVo;
+import com.stamp.data.HistoryVo;
 import com.stamp.data.DataService;
 
 @Controller
@@ -54,7 +54,7 @@ public class HomeController {
 		
 		return "login";
 	}
-	
+
 	//login
 			@RequestMapping(value="/home", method=RequestMethod.POST)
 			public ModelAndView selectId(LoginVo vo){
@@ -66,6 +66,7 @@ public class HomeController {
 				{
 					if(vo.getId().equals(checkaccount.getId()) && vo.getPassword().equals(checkaccount.getPassword())){
 						mv.setViewName("home");
+						mv.addObject("vo", vo);
 						return mv;
 					}
 					else {
@@ -91,9 +92,15 @@ public class HomeController {
 				return "insertaccount";
 			}
 			
-			@RequestMapping(value="/history")
-			public String history(){
-				return "history";
+			@RequestMapping(value="history" , method=RequestMethod.GET)
+			public ModelAndView history(HistoryVo hv, @RequestParam(value = "start" , required=false, defaultValue="1") String start,@RequestParam(value = "end" , required=false, defaultValue="1") String end ){
+				
+				String date = start+end;
+				List<HistoryVo> LHV = dService.SearchHistory(date);
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("hv", LHV);
+				mv.setViewName("history");
+				return mv;
 			}
 			
 			@RequestMapping(value="festival" , method=RequestMethod.GET)
@@ -103,7 +110,6 @@ public class HomeController {
 				String culturemonth = "0"+month;
 				List<FestivalVo> LFV = dService.SearchFestival(month);
 				List<CultureVo> CFV = dService.SearchCulture(culturemonth);
-				//System.out.println(LFV.get(0).getTitle());
 				ModelAndView mv = new ModelAndView();
 				mv.addObject("fv", LFV);
 				mv.addObject("cv", CFV);
@@ -129,8 +135,8 @@ public class HomeController {
 			
 	
 			@RequestMapping(value="/stamp" , method=RequestMethod.GET)
-			public ModelAndView stamp(){
-				StampVo sv = sService.SearchStamp("admin"); //Strign Sid : session id 쓸것 
+			public ModelAndView stamp(@RequestParam(value = "Sid" , required=false, defaultValue="1") String Sid){
+				StampVo sv = sService.SearchStamp(Sid); //Strign Sid : session id 쓸것 
 				ModelAndView mv = new ModelAndView();
 				mv.addObject("sv", sv);
 				mv.setViewName("stamp");
@@ -149,5 +155,9 @@ public class HomeController {
 			@RequestMapping(value="/toculture")
 			public String toculture(){
 				return "toculture";
+			}
+			@RequestMapping(value="/tohistory")
+			public String tohistory(){
+				return "tohistory";
 			}
 }

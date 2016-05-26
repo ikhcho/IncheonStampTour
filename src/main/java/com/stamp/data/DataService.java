@@ -18,4 +18,8 @@ public class DataService {
 	public List<CultureVo> SearchCulture(String month){
 		return dao.SearchCulture(month);
 	}
+	
+	public List<HistoryVo> SearchHistory(String date){
+		return dao.SearchHistory(date);
+	}
 }

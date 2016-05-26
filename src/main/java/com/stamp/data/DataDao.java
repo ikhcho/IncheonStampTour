@@ -23,4 +23,9 @@ public class DataDao {
 		// TODO Auto-generated method stub
 		return template.selectList("stamp.searchCulture",month);
 	}
+	
+	public List<HistoryVo> SearchHistory(String date) {
+		// TODO Auto-generated method stub
+		return template.selectList("stamp.searchHistory",date);
+	}
 }

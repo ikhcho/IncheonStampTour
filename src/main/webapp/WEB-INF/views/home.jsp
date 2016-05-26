@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.stamp.member.LoginVo" %>
+<%
+	
+if(request.getParameter("Sid")!=null)
+{
+	if(request.getParameter("Sid").equals("noid"))
+	{
+	session.setAttribute("Sid",	"noid");
+	}
+}
+else
+{
+	LoginVo vo = (LoginVo) request.getAttribute("vo");
+	session.setAttribute("Sid",	vo.getId());
+	
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,6 +133,7 @@
 
 </head>
 <body>
+
 <div data-role="page" data-theme="a" id="background" height="wrapped">
 		<div class="container">
 			<div class="row">
@@ -147,7 +165,7 @@
 						<img src=resources/img/restaurant.jpg style="width: 100%"></a>
 				</div>
 				<div style="float: right; width:50%;" id="stamp">
-					<a href="<%=request.getContextPath()%>/stamp">
+					<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>">
 					<img src=resources/img/stamp.jpg style="width: 100%"></a>	
 				</div>
 			</div>
@@ -160,10 +178,11 @@
 	<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a class="ui-btn-active"
-						href="<%=request.getContextPath()%>/">로그인</a></li>
+					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/">
+					<%if(session.getAttribute("Sid").equals("noid")){ %>로그인<%}else{%>로그아웃<%}%>
+					</a></li>
 					<li><a href="<%=request.getContextPath()%>/history">역사</a></li>
-					<li><a href="<%=request.getContextPath()%>/home">홈</a></li>
+					<li><a href="<%=request.getContextPath()%>/home?Sid=<%=session.getAttribute("Sid") %>">홈</a></li>
 					<li><a href="<%=request.getContextPath()%>/festival?redirection=festival">축제</a></li>
 					<li><a href="<%=request.getContextPath()%>/board">게시판</a></li>
 				</ul>
