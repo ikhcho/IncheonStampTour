@@ -162,11 +162,11 @@ else
 			</div>
 			<div>
 				<div style="float: left; width: 50%;" id="restaurant">
-						<a href="<%=request.getContextPath()%>/home">
+						<a href="<%=request.getContextPath()%>/restaurant">
 						<img src=resources/img/restaurant.jpg style="width: 100%"></a>
 				</div>
 				<div style="float: right; width:50%;" id="stamp">
-					<a href="<%=request.getContextPath()%>/stamp %>">
+					<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>">
 					<img src=resources/img/stamp.jpg style="width: 100%"></a>	
 				</div>
 			</div>
@@ -182,10 +182,9 @@ else
 					<li><a href="<%=request.getContextPath()%>/">
 					<%if(session.getAttribute("Sid").equals("noid")){ %>로그인<%}else{%>로그아웃<%}%>
 					</a></li>
+					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>">메인화면</a></li>
 					<li><a href="<%=request.getContextPath()%>/history">역사</a></li>
-					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>">홈</a></li>
 					<li><a href="<%=request.getContextPath()%>/festival?redirection=festival">축제</a></li>
-					<li><a href="<%=request.getContextPath()%>/board">게시판</a></li>
 				</ul>
 			</div>
 		</div>

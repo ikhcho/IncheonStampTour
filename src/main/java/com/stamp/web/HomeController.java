@@ -117,11 +117,6 @@ public class HomeController {
 				return mv;
 			}
 			
-			@RequestMapping(value="/board")
-			public String board(){
-				return "board";
-			}
-			
 			@RequestMapping(value="/home")
 			public String home(){
 				return "home";

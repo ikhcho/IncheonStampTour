@@ -107,17 +107,5 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://daks2k3a4ib2z.cloudfront.net/574543bcf8eeecce0f106a19/js/webflow.ed69f7a56.js"></script>
 <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
-<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/">
-					<%if(session.getAttribute("Sid").equals("noid")){ %>로그인<%}else{%>로그아웃<%}%>
-					</a></li>
-					<li><a href="<%=request.getContextPath()%>/history">역사</a></li>
-					<li><a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>">홈</a></li>
-					<li><a href="<%=request.getContextPath()%>/festival?redirection=festival">축제</a></li>
-					<li><a href="<%=request.getContextPath()%>/board">게시판</a></li>
-				</ul>
-			</div>
-		</div>
+
 </body></html>
