@@ -166,7 +166,7 @@ else
 						<img src=resources/img/restaurant.jpg style="width: 100%"></a>
 				</div>
 				<div style="float: right; width:50%;" id="stamp">
-					<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>">
+					<a href="<%=request.getContextPath()%>/stamp %>">
 					<img src=resources/img/stamp.jpg style="width: 100%"></a>	
 				</div>
 			</div>

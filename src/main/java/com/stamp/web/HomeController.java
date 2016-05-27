@@ -132,7 +132,10 @@ public class HomeController {
 				return "place";
 			}
 			
-			
+			@RequestMapping(value="/restaurant")
+			public String restaurant(){
+				return "restaurant";
+			}
 	
 			@RequestMapping(value="/stamp" , method=RequestMethod.GET)
 			public ModelAndView stamp(@RequestParam(value = "Sid" , required=false, defaultValue="1") String Sid){
