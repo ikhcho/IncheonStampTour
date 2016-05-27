@@ -4,18 +4,19 @@
 <%@ page import="com.stamp.member.LoginVo" %>
 <%
 	
-if(request.getParameter("Sid")!=null)
+if(request.getParameter("log")!=null)
 {
-	if(request.getParameter("Sid").equals("noid"))
+	if(request.getParameter("log").equals("f"))
 	{
-	session.setAttribute("Sid",	"noid");
+		session.setAttribute("log","f");
+		session.setAttribute("Sid",	"noid");
 	}
 }
 else
 {
 	LoginVo vo = (LoginVo) request.getAttribute("vo");
 	session.setAttribute("Sid",	vo.getId());
-	
+	session.setAttribute("log","t");
 }
 %>
 <!DOCTYPE html>
@@ -178,11 +179,11 @@ else
 	<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/">
+					<li><a href="<%=request.getContextPath()%>/">
 					<%if(session.getAttribute("Sid").equals("noid")){ %>로그인<%}else{%>로그아웃<%}%>
 					</a></li>
 					<li><a href="<%=request.getContextPath()%>/history">역사</a></li>
-					<li><a href="<%=request.getContextPath()%>/home?Sid=<%=session.getAttribute("Sid") %>">홈</a></li>
+					<li><a class="ui-btn-active" href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>">홈</a></li>
 					<li><a href="<%=request.getContextPath()%>/festival?redirection=festival">축제</a></li>
 					<li><a href="<%=request.getContextPath()%>/board">게시판</a></li>
 				</ul>

@@ -47,6 +47,12 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+#home{
+	float:right; 
+	width:70%; 
+	height:20px;
+}
+
 </style>
 
 </head>
@@ -57,16 +63,19 @@
 				<div class="col-sm-6 col-md-4 col-md-offset-4">
 					<center>
 						<h1 class="text-center login-title" id="title" >인천 스탬프 투어</h1>
-
-						<img src="resources/img/Login_mascot.png" style="width: 80%">
 						
-						<div style="width: 80%; margin-top: 20px;"class="account-wall">
+						<img src="resources/img/Login_mascot.png" style="width: 70%"><br/>
+					
+						<a href="<%=request.getContextPath()%>/home?log=f" id="home"><font size="2px">로그인 없이 이용하기</font></a>
+					
+						
+						<div style="width: 70%; margin-top: 20px;"class="account-wall">
 							<form method="post" class="signin" name="f">	
 								<div id="input">
 									<input id="id" name="id" type="text" class="form-control"
-										placeholder="Username" autocomplete="on" required autofocus>
+										placeholder="아이디" autocomplete="on" required autofocus>
 									<input id="password" name="password" type="password"
-										class="form-control" placeholder="Password" required>
+										class="form-control" placeholder="패스워드" required>
 								</div>
 								<div id="submit">
 									<button class="btn btn-lg btn-primary btn-block"

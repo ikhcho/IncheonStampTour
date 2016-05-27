@@ -66,7 +66,7 @@
 						
 						<img src="resources/img/Login_mascot.png" style="width: 70%"><br/>
 					
-						<a href="<%=request.getContextPath()%>/home?Sid=noid" id="home"><font size="2px">로그인 없이 이용하기</font></a>
+						<a href="<%=request.getContextPath()%>/home?log=f" id="home"><font size="2px">로그인 없이 이용하기</font></a>
 					
 						
 						<div style="width: 70%; margin-top: 20px;"class="account-wall">
