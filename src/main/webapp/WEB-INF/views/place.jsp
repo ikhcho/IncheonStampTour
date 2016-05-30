@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+<%@ page import="java.util.*" %>
+<%@ page import="com.stamp.data.TreasureVo" %>
+
+<%
+	List<TreasureVo> tv = (List<TreasureVo>) request.getAttribute("tv");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!-- This site was created in Webflow. http://www.webflow.com-->
 <!-- Last Published: Sun May 22 2016 01:00:16 GMT+0000 (UTC) -->
+
 
 <html data-wf-site="574103e2762794412692e927" data-wf-page="574103e3762794412692e92b" data-wf-status="1" data-wf-domain="yoseph-jangs-first-site.webflow.io">
 
@@ -11,7 +19,7 @@
 <meta charset="utf-8">
 
 <!-- header title -->
-<title>Blog Home</title>
+<title>인천 스탬프 투어</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Webflow">
@@ -27,34 +35,29 @@
 <script type="text/javascript" src="https://daks2k3a4ib2z.cloudfront.net/0globals/modernizr-2.7.1.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
 <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
-
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
-
-
 </head>
 
 <body>
 
-<!-- navigation container - ->
+<!-- navigation container -->
 <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" class="w-nav navigation-bar">
 
 <div class="w-container">
 
-<!-- site name - ->
+<!-- site name -->
 <a href="/" class="w-nav-brand">
-<div class="site-name">Denali</div>
+<div class="site-name">추천 여행지</div>
 </a>
 
 <nav role="navigation" class="w-nav-menu navigation-menu">
 
-<!-- home link - ->
+<!-- home link -->
 <a href="/" class="w-nav-link navigation-link">Home</a>
 
-<!-- about link - ->
+<!-- about link -->
 <a href="/about" class="w-nav-link navigation-link">About</a>
 
-<!-- contact link - ->
+<!-- contact link -->
 <a href="/contact" class="w-nav-link navigation-link">Contact</a>
 
 </nav>
@@ -139,25 +142,55 @@
 <div class="w-dyn-items">
 
 <!-- listitem1 -->
+<!-- 여기부터 "listitem1 end"까지 jsp의 for문으로 반복해준다 -->
+<%
+	for(int i=0; i<4; i++)
+	{
+%>
 <div class="w-dyn-item">
 <div class="post-wrapper">
 <div class="post-content">
 <div class="w-row">
 <div class="w-col w-col-4 w-col-medium-4">
+
 <!-- listitem1.img -->
-<a class="w-inline-block blog-image" href="/posts/half-and-half-variety-milk-viennese-body-cappuccino" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/574103e3762794412692e939/574103e3762794412692e944_photo-1429277096327-11ee3b761c93-bw.jpg');"></a>
-</div><div class="w-col w-col-8 w-col-medium-8">
-<!-- listitem1.title -->
-<a class="w-inline-block blog-title-link" href="/posts/half-and-half-variety-milk-viennese-body-cappuccino">
-<h2 class="blog-title">According a funnily until pre-set or arrogant well cheerful</h2>
+<!-- 첫번째 줄의 href="..." 부분을 수정 -->
+<!-- xml의 컬럼 4번(link)를 넣어준다 -->
+<!-- 두번째 줄의 url('...')부분을 수정 -->
+<!-- xml의 컬럼 12번(poster)를 넣어준다 -->
+<a class="w-inline-block blog-image" href="<% out.print(tv.get(i).getLink());%>" style="background-image: url('<% out.print(tv.get(i).getPoster());%>');">
 </a>
+
+</div><div class="w-col w-col-8 w-col-medium-8">
+
+<!-- listitem1.title -->
+<!-- 첫번째 줄의 href="..." 부분을 수정 -->
+<!-- xml의 컬럼 4번(link)를 넣어준다 -->
+<!-- 두번째 줄의 "blog-title">...<부분을 수정 -->
+<!-- xml의 컬럼 3번(title)를 넣어준다 -->
+<a class="w-inline-block blog-title-link" href="<% out.print(tv.get(i).getLink());%>">
+<h2 class="blog-title"><% out.println(tv.get(i).getTitle());%></h2>
+</a>
+
 <div class="details-wrapper">
-<div class="post-info">May 22, 2016</div>
+
+<!-- item bunryuu -->
+<!-- xml의 컬럼 1번(bunryu)와 컬럼 7번(number)를 넣어준다 -->
+<div class="post-info"><% out.print(tv.get(i).getBunryu()); out.println(tv.get(i).getNumber());%></div>
+
 <div class="post-info">|</div>
-<a class="post-info when-link" href="/categories/music">Music</a>
+
+<!-- item location -->
+<!-- xml의 컬럼 5번(region)과 컬럼 11번(location)를 넣어준다 -->
+<a class="post-info when-link" href="/categories/music"><% out.print(tv.get(i).getRegion()); out.println(tv.get(i).getLocation());%></a>
+
 </div>
 <div class="post-summary-wrapper">
-<p class="post-summary">Single shot cultivar beans as chicory caffeine. Medium brewed, milk extra that froth pumpkin spice mocha. Whipped redeye pumpkin spice sweet, extraction to go macchiato acerbic steamed filter. Robusta grounds decaffeinated.</p>
+
+<!-- item location -->
+<!-- xml의 컬럼 13번(description)을 넣어준다 -->
+<p class="post-summary"><% out.println(tv.get(i).getDescription());%>}</p>
+
 <a class="read-more-link" href="/posts/half-and-half-variety-milk-viennese-body-cappuccino">Read more...</a>
 </div>
 </div>
@@ -165,6 +198,11 @@
 </div>
 </div>
 </div>
+<%
+}
+%>
+
+<!-- 여기까지 jsp의 for문으로 반복해준다 -->
 <!-- listitem1 end -->
 
 <div class="w-dyn-item">
@@ -276,6 +314,8 @@
 </div>
 <!-- More post btn end -->
 
+
+<!--
 <div class="sidebar-on-mobile">
 <div class="white-wrapper">
 <img src="https://daks2k3a4ib2z.cloudfront.net/574103e2762794412692e927/574103e3762794412692e9d6_photo-1437623889155-075d40e2e59f-bw.jpg" class="circle-profile">
@@ -312,13 +352,17 @@
 
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+-->
 
-<!-- web flow link - ->
+</div>
+</div>
+</div>
+</div>
+<!-- -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!-- -->
+
+<!-- web flow link -->
 <script type="text/javascript" src="https://daks2k3a4ib2z.cloudfront.net/574103e2762794412692e927/js/webflow.ed69f7a56.js"></script>
 <!-- web flow link end -->
 

@@ -23,6 +23,7 @@ import com.stamp.stamp.StampService;
 import com.stamp.data.FestivalVo;
 import com.stamp.data.CultureVo;
 import com.stamp.data.HistoryVo;
+import com.stamp.data.TreasureVo;
 import com.stamp.data.DataService;
 
 @Controller
@@ -109,10 +110,10 @@ public class HomeController {
 				String month = String.valueOf(cal.get(Calendar.MONTH)+1);
 				String culturemonth = "0"+month;
 				List<FestivalVo> LFV = dService.SearchFestival(month);
-				List<CultureVo> CFV = dService.SearchCulture(culturemonth);
+				List<CultureVo> LCV = dService.SearchCulture(culturemonth);
 				ModelAndView mv = new ModelAndView();
 				mv.addObject("fv", LFV);
-				mv.addObject("cv", CFV);
+				mv.addObject("cv", LCV);
 				mv.setViewName("festival");
 				return mv;
 			}
@@ -122,10 +123,14 @@ public class HomeController {
 				return "home";
 			}
 			
-			@RequestMapping(value="/place")
-			public String place(){
-				return "place";
-			}
+			@RequestMapping(value="/place" , method=RequestMethod.GET)
+			public ModelAndView place(){
+				List<TreasureVo> LTV = dService.SearchTreasure(); //Strign Sid : session id 쓸것 
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("tv", LTV);
+				mv.setViewName("place");
+				return mv;
+			} 
 			
 			@RequestMapping(value="/restaurant")
 			public String restaurant(){

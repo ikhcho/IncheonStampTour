@@ -22,4 +22,8 @@ public class DataService {
 	public List<HistoryVo> SearchHistory(String date){
 		return dao.SearchHistory(date);
 	}
+	
+	public List<TreasureVo> SearchTreasure(){
+		return dao.SearchTreasure();
+	}
 }
