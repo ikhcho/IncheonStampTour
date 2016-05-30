@@ -1,25 +1,20 @@
 package com.stamp.data;
 
 public class TreasureVo {
-	private String bunryu;
+	
 	private String title;
 	private String link;
 	private String region;
+	private String gubun;
 	private String number;
 	private String location;
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
 	private String poster;
 	private String description;
-	public String getBunryu() {
-		return bunryu;
+	public String getGubun() {
+		return gubun;
 	}
-	public void setBunryu(String bunryu) {
-		this.bunryu = bunryu;
+	public void setGubun(String gubun) {
+		this.gubun = gubun;
 	}
 	public String getTitle() {
 		return title;
@@ -44,6 +39,12 @@ public class TreasureVo {
 	}
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	public String getPoster() {
 		return poster;

@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="searchTreasure" parameterType="String" resultType="com.stamp.data.TreasureVo">
-		SELECT bunryu, title, link, region, number, location, poster, description
+		SELECT title, link, region, gubun, number, location, poster, description
 		FROM treasure
 	</select>
 	

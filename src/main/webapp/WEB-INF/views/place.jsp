@@ -176,7 +176,7 @@
 
 <!-- item bunryuu -->
 <!-- xml의 컬럼 1번(bunryu)와 컬럼 7번(number)를 넣어준다 -->
-<div class="post-info"><% out.print(tv.get(i).getBunryu()); out.println(tv.get(i).getNumber());%></div>
+<div class="post-info"><% out.print(tv.get(i).getGubun()); out.println(tv.get(i).getNumber());%></div>
 
 <div class="post-info">|</div>
 
