@@ -26,4 +26,8 @@ public class DataService {
 	public List<TreasureVo> SearchTreasure(){
 		return dao.SearchTreasure();
 	}
+	
+	public List<RestaurantVo> SearchRestaurant(){
+		return dao.SearchRestaurant();
+	}
 }

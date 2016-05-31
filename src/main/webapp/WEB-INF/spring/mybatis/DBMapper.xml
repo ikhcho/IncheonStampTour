@@ -56,6 +56,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM treasure
 	</select>
 	
+	<select id="searchRestaurant" parameterType="String" resultType="com.stamp.data.RestaurantVo">
+		SELECT name, addr, tel, description, image, link
+		FROM restaurant
+	</select>
+	
 	<!-- 
 	<delete id="deleteCalendar" parameterType="int">
 		DELETE FROM calendar

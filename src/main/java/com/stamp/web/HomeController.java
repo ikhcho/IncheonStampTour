@@ -24,6 +24,7 @@ import com.stamp.data.FestivalVo;
 import com.stamp.data.CultureVo;
 import com.stamp.data.HistoryVo;
 import com.stamp.data.TreasureVo;
+import com.stamp.data.RestaurantVo;
 import com.stamp.data.DataService;
 
 @Controller
@@ -132,10 +133,14 @@ public class HomeController {
 				return mv;
 			} 
 			
-			@RequestMapping(value="/restaurant")
-			public String restaurant(){
-				return "restaurant";
-			}
+			@RequestMapping(value="/restaurant" , method=RequestMethod.GET)
+			public ModelAndView restaurant(){
+				List<RestaurantVo> LRV = dService.SearchRestaurant();
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("rv", LRV);
+				mv.setViewName("restaurant");
+				return mv;
+			} 
 	
 			@RequestMapping(value="/stamp" , method=RequestMethod.GET)
 			public ModelAndView stamp(@RequestParam(value = "Sid" , required=false, defaultValue="1") String Sid){

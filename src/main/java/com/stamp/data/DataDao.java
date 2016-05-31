@@ -33,4 +33,9 @@ public class DataDao {
 		// TODO Auto-generated method stub
 		return template.selectList("stamp.searchTreasure");
 	}
+	
+	public List<RestaurantVo> SearchRestaurant() {
+		// TODO Auto-generated method stub
+		return template.selectList("stamp.searchRestaurant");
+	}
 }
