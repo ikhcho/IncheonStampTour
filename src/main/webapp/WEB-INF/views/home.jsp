@@ -156,7 +156,7 @@ else
 						<img src=resources/img/place.jpg style="width: 100%"></a>
 				</div>
 				<div style="float: right; width:50%;" id="course">
-					<a href="<%=request.getContextPath()%>/home">
+					<a href="<%=request.getContextPath()%>/course">
 					<img src=resources/img/course.jpg style="width: 100%"></a>	
 				</div>
 			</div>

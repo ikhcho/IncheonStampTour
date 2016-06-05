@@ -14,7 +14,7 @@
 <head>
 
 <meta charset="utf-8">
-<title>인천맛집</title>
+<title>인천 스탬프 투어</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Webflow">
@@ -34,9 +34,20 @@
 <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" class="w-nav navigation-bar">
 
 <div class="w-container">
-<a href="/" class="w-nav-brand">
+<a href="<%=request.getContextPath()%>/restaurant" class="w-nav-brand">
 <div class="site-name">인천맛집</div></a>
-<nav role="navigation" class="w-nav-menu navigation-menu"></nav>
+<nav role="navigation" class="w-nav-menu navigation-menu">
+
+<!-- home link -->
+<a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>" class="w-nav-link navigation-link">메인화면</a>
+
+<!-- about link -->
+<a href="/about" class="w-nav-link navigation-link">추천코스</a>
+
+<!-- contact link -->
+<a href="<%=request.getContextPath()%>/place" class="w-nav-link navigation-link">추천 여행지</a>
+
+</nav>
 <div class="w-nav-button menu-button">
 <div class="w-icon-nav-menu">
 </div></div></div></div>
@@ -81,27 +92,7 @@
 </div>
 <!-- 반복부분끝!!-->
 
-</div></div>
-<div class="button-wrapper"><a href="/all-posts" class="w-button button">More posts&nbsp;→</a></div>
-<div class="sidebar-on-mobile">
-<div class="white-wrapper">
-<img src="http://uploads.webflow.com/574543bcf8eeecce0f106a19/574543bdf8eeecce0f106ac8_photo-1437623889155-075d40e2e59f-bw.jpg" class="circle-profile">
-<p class="site-description">Denali is a simple responsive blog template. Easily add new posts using the Editor or change layout and design using the Designer.</p><div class="grey-rule"></div>
-<h2 class="small-heading">Featured Posts:</h2>
-<div class="w-dyn-list feature-posts-list">
-<div class="w-dyn-items">
-<div class="w-dyn-item">
-<a class="small-post-link" href="/posts/half-and-half-variety-milk-viennese-body-cappuccino">According a funnily until pre-set or arrogant well cheerful</a></div>
-<div class="w-dyn-item">
-<a class="small-post-link" href="/posts/steamed-siphon-froth-mazagran-cafe-au-lait">Overlaid the jeepers uselessly much excluding</a></div></div></div>
-<div class="grey-rule"></div>
-<div class="social-link-group">
-<a href="#" class="w-inline-block social-icon-link"><img width="25" src="http://uploads.webflow.com/574543bcf8eeecce0f106a19/574543bdf8eeecce0f106a56_social-03.svg"></a>
-<a href="#" class="w-inline-block social-icon-link"><img width="25" src="http://uploads.webflow.com/574543bcf8eeecce0f106a19/574543bdf8eeecce0f106a6e_social-07.svg"></a>
-<a href="#" class="w-inline-block social-icon-link"><img width="25" src="http://uploads.webflow.com/574543bcf8eeecce0f106a19/574543bdf8eeecce0f106ab6_social-18.svg"></a>
-<a href="#" class="w-inline-block social-icon-link"><img width="25" src="http://uploads.webflow.com/574543bcf8eeecce0f106a19/574543bdf8eeecce0f106a82_social-09.svg"></a></div>
-<p class="built-with-webflow">Built with <a class="webflow-link" target="_blank" href-disabled="https://webflow.com" href="https://webflow.com">Webflow</a></p></div></div></div></div></div></div>
+</div></div></div></div></div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://daks2k3a4ib2z.cloudfront.net/574543bcf8eeecce0f106a19/js/webflow.ed69f7a56.js"></script>
 <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body></html>

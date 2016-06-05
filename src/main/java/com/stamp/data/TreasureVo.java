@@ -1,7 +1,6 @@
 package com.stamp.data;
 
 public class TreasureVo {
-	
 	private String title;
 	private String link;
 	private String region;
@@ -10,6 +9,29 @@ public class TreasureVo {
 	private String location;
 	private String poster;
 	private String description;
+	private String stampNum;
+	private String left;
+	private String top;
+	
+	
+	public String getLeft() {
+		return left;
+	}
+	public void setLeft(String left) {
+		this.left = left;
+	}
+	public String getTop() {
+		return top;
+	}
+	public void setTop(String top) {
+		this.top = top;
+	}
+	public String getStampNum() {
+		return stampNum;
+	}
+	public void setStampNum(String stampNum) {
+		this.stampNum = stampNum;
+	}
 	public String getGubun() {
 		return gubun;
 	}

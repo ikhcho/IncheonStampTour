@@ -124,6 +124,22 @@ public class HomeController {
 				return "home";
 			}
 			
+			@RequestMapping(value="/course")
+			public String course(){
+				return "course";
+			}
+			
+			@RequestMapping(value="/recommend_course")
+			public String recommend_course(){
+				return "recommend_course";
+			}
+			
+			@RequestMapping(value="/stamp_course")
+			public String stamp_course(){
+				return "stamp_course";
+			}
+			
+			
 			@RequestMapping(value="/place" , method=RequestMethod.GET)
 			public ModelAndView place(){
 				List<TreasureVo> LTV = dService.SearchTreasure(); //Strign Sid : session id 쓸것 

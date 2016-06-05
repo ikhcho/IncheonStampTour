@@ -43,10 +43,19 @@
 }
 #stamp{
 	width:80%;
-	margin-top:2%;
+	margin-top:80px;
 	background-color:#9999ff;
 }
+#stamp_btn{
+	float:right;
+	width:60px;
+	height:60px;
+	background-image: url("resources/img/stamp_button.jpg");
+}
+#stamp_img{
+	background-image: url("resources/img/st.png");
 
+}
 </style>
 
 
@@ -57,9 +66,13 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-4 col-md-offset-4">
 					<center>
-						<br/><br/>
+						<br/>
 						<h1 class="text-center login-title" id="title" >보유 스탬프</h1>
 						<br/>
+						
+						<div >
+							<button id="stamp_btn"></button>
+						</div>
 						<div id="stamp">
 							<div style="margin-bottom:5px">
 							<h4 align="center"> <%out.println(session.getAttribute("Sid"));%> 회원님은 <br/>

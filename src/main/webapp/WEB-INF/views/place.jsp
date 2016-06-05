@@ -6,6 +6,8 @@
 
 <%
 	List<TreasureVo> tv = (List<TreasureVo>) request.getAttribute("tv");
+	int index[] = {80, 79, 81, 82, 144, 142, 139, 152, 159, 162, 100,
+						105, 131, 84, 85, 86, 99, 17, 21, 184, 215};
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -45,20 +47,20 @@
 <div class="w-container">
 
 <!-- site name -->
-<a href="/" class="w-nav-brand">
+<a href="<%=request.getContextPath()%>/place" class="w-nav-brand">
 <div class="site-name">추천 여행지</div>
 </a>
 
 <nav role="navigation" class="w-nav-menu navigation-menu">
 
 <!-- home link -->
-<a href="/" class="w-nav-link navigation-link">Home</a>
+<a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>" class="w-nav-link navigation-link">메인화면</a>
 
 <!-- about link -->
-<a href="/about" class="w-nav-link navigation-link">About</a>
+<a href="/about" class="w-nav-link navigation-link">추천코스</a>
 
 <!-- contact link -->
-<a href="/contact" class="w-nav-link navigation-link">Contact</a>
+<a href="<%=request.getContextPath()%>/restaurant" class="w-nav-link navigation-link">맛집</a>
 
 </nav>
 
@@ -144,7 +146,7 @@
 <!-- listitem1 -->
 <!-- 여기부터 "listitem1 end"까지 jsp의 for문으로 반복해준다 -->
 <%
-	for(int i=0; i<4; i++)
+	for(int i=0; i<21; i++)
 	{
 %>
 <div class="w-dyn-item">
@@ -158,7 +160,7 @@
 <!-- xml의 컬럼 4번(link)를 넣어준다 -->
 <!-- 두번째 줄의 url('...')부분을 수정 -->
 <!-- xml의 컬럼 12번(poster)를 넣어준다 -->
-<a class="w-inline-block blog-image" href="<% out.print(tv.get(i).getLink());%>" style="background-image: url('<% out.print(tv.get(i).getPoster());%>');">
+<a class="w-inline-block blog-image" href="<% out.print(tv.get(index[i]).getLink());%>" style="background-image: url('<% out.print(tv.get(index[i]).getPoster());%>');">
 </a>
 
 </div><div class="w-col w-col-8 w-col-medium-8">
@@ -168,30 +170,30 @@
 <!-- xml의 컬럼 4번(link)를 넣어준다 -->
 <!-- 두번째 줄의 "blog-title">...<부분을 수정 -->
 <!-- xml의 컬럼 3번(title)를 넣어준다 -->
-<a class="w-inline-block blog-title-link" href="<% out.print(tv.get(i).getLink());%>">
-<h2 class="blog-title"><% out.println(tv.get(i).getTitle());%></h2>
+<a class="w-inline-block blog-title-link" href="<% out.print(tv.get(index[i]).getLink());%>">
+<h2 class="blog-title"><% out.println(tv.get(index[i]).getTitle());%></h2>
 </a>
 
 <div class="details-wrapper">
 
 <!-- item bunryuu -->
 <!-- xml의 컬럼 1번(bunryu)와 컬럼 7번(number)를 넣어준다 -->
-<div class="post-info"><% out.print(tv.get(i).getGubun()); out.println(tv.get(i).getNumber());%></div>
+<div class="post-info"><% out.print(tv.get(index[i]).getGubun()); out.println(tv.get(index[i]).getNumber());%></div>
 
 <div class="post-info">|</div>
 
 <!-- item location -->
 <!-- xml의 컬럼 5번(region)과 컬럼 11번(location)를 넣어준다 -->
-<a class="post-info when-link" href="/categories/music"><% out.print(tv.get(i).getRegion()); out.println(tv.get(i).getLocation());%></a>
+<a class="post-info when-link" href="/categories/music"><% out.print(tv.get(index[i]).getRegion()); out.println(tv.get(index[i]).getLocation());%></a>
 
 </div>
 <div class="post-summary-wrapper">
 
 <!-- item location -->
 <!-- xml의 컬럼 13번(description)을 넣어준다 -->
-<p class="post-summary"><% out.println(tv.get(i).getDescription());%>}</p>
+<p class="post-summary"><% out.println(tv.get(index[i]).getDescription());%>}</p>
 
-<a class="read-more-link" href="/posts/half-and-half-variety-milk-viennese-body-cappuccino">Read more...</a>
+
 </div>
 </div>
 </div>
@@ -205,114 +207,12 @@
 <!-- 여기까지 jsp의 for문으로 반복해준다 -->
 <!-- listitem1 end -->
 
-<div class="w-dyn-item">
-<div class="post-wrapper">
-<div class="post-content">
-<div class="w-row">
-<div class="w-col w-col-4 w-col-medium-4">
-<a class="w-inline-block blog-image" href="/posts/coffee-variety-macchiato-as-organic-ut-variety-caffeine-americano" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/574103e3762794412692e939/574103e3762794412692e946_photo-1429277005502-eed8e872fe52-bw.jpg');"></a>
-</div>
-<div class="w-col w-col-8 w-col-medium-8">
-<a class="w-inline-block blog-title-link" href="/posts/coffee-variety-macchiato-as-organic-ut-variety-caffeine-americano">
-<h2 class="blog-title">Coffee variety macchiato, as organic ut variety caffeine americano</h2>
-</a>
-<div class="details-wrapper">
-<div class="post-info">May 22, 2016</div>
-<div class="post-info">|</div>
-<a class="post-info when-link" href="/categories/travel">Travel</a>
-</div>
-<div class="post-summary-wrapper">
-<p class="post-summary">Saucer, crema carajillo, bar, mocha medium, latte cappuccino and espresso acerbic to go. Coffee, irish foam turkish coffee blue mountain seasonal. Turkish grinder medium, plunger pot, coffee viennese crema galao macchiato. </p>
-<a class="read-more-link" href="/posts/coffee-variety-macchiato-as-organic-ut-variety-caffeine-americano">Read more...</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
-<div class="w-dyn-item">
-<div class="post-wrapper">
-<div class="post-content">
-<div class="w-row">
-<div class="w-col w-col-4 w-col-medium-4">
-<a class="w-inline-block blog-image" href="/posts/cafe-au-lait-turkish-doppio-ristretto" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/574103e3762794412692e939/574103e3762794412692e941_photo-1443466612971-98a16c828136-bw.jpg');"></a>
-</div>
-<div class="w-col w-col-8 w-col-medium-8">
-<a class="w-inline-block blog-title-link" href="/posts/cafe-au-lait-turkish-doppio-ristretto">
-<h2 class="blog-title">Wherever far wow thus a squirrel raccoon jeez jaguar this from along</h2>
-</a>
-<div class="details-wrapper">
-<div class="post-info">May 22, 2016</div>
-<div class="post-info">|</div><a class="post-info when-link" href="/categories/art">Art</a>
-</div>
-<div class="post-summary-wrapper">
-<p class="post-summary">The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word &quot;and&quot; and the Little Blind</p>
-<a class="read-more-link" href="/posts/cafe-au-lait-turkish-doppio-ristretto">Read more...</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="w-dyn-item">
-<div class="post-wrapper">
-<div class="post-content">
-<div class="w-row">
-<div class="w-col w-col-4 w-col-medium-4">
-<a class="w-inline-block blog-image" href="/posts/steamed-siphon-froth-mazagran-cafe-au-lait" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/574103e3762794412692e939/574103e3762794412692e943_photo-1434432658413-df381101ee45-bw.jpg');"></a>
-</div>
-<div class="w-col w-col-8 w-col-medium-8">
-<a class="w-inline-block blog-title-link" href="/posts/steamed-siphon-froth-mazagran-cafe-au-lait">
-<h2 class="blog-title">Overlaid the jeepers uselessly much excluding</h2>
-</a>
-<div class="details-wrapper">
-<div class="post-info">May 22, 2016</div><div class="post-info">|</div>
-<a class="post-info when-link" href="/categories/tech">Tech</a>
-</div>
-<div class="post-summary-wrapper">
-<p class="post-summary">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. </p>
-<a class="read-more-link" href="/posts/steamed-siphon-froth-mazagran-cafe-au-lait">Read more...</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="w-dyn-item">
-<div class="post-wrapper">
-<div class="post-content">
-<div class="w-row">
-<div class="w-col w-col-4 w-col-medium-4">
-<a class="w-inline-block blog-image" href="/posts/coffee-sugar-chicory-seasonal-espresso-barista-americano" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/574103e3762794412692e939/574103e3762794412692e945_photo-1441512673622-3eaa1c39ba28-bw.jpg');"></a>
-</div>
-<div class="w-col w-col-8 w-col-medium-8">
-<a class="w-inline-block blog-title-link" href="/posts/coffee-sugar-chicory-seasonal-espresso-barista-americano"><h2 class="blog-title">Coffee sugar, chicory seasonal espresso barista americano</h2>
-</a>
-<div class="details-wrapper">
-<div class="post-info">May 22, 2016</div>
-<div class="post-info">|</div>
-<a class="post-info when-link" href="/categories/music">Music</a></div><div class="post-summary-wrapper">
-<p class="post-summary">Arista, percolator, cream, aromatic, fair trade, breve body instant lungo blue mountain cappuccino. Americano aroma mug espresso latte crema milk redeye acerbic. Galao robusta instant, decaffeinated, so fair trade wings.</p>
-<a class="read-more-link" href="/posts/coffee-sugar-chicory-seasonal-espresso-barista-americano">Read more...</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 </div>
 </div>
 <!-- list end -->
 
-<!-- More post btn -->
-<div class="button-wrapper">
-<a href="/all-posts" class="w-button button">More posts&nbsp;→</a>
-</div>
-<!-- More post btn end -->
 
 
 <!--
@@ -362,9 +262,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <!-- -->
 
-<!-- web flow link -->
-<script type="text/javascript" src="https://daks2k3a4ib2z.cloudfront.net/574103e2762794412692e927/js/webflow.ed69f7a56.js"></script>
-<!-- web flow link end -->
+
 
 <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body></html>
