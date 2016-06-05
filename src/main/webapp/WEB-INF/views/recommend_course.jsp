@@ -23,7 +23,7 @@ try{
 	con = DriverManager.getConnection(jdbcURL,dbID,dbPW);
 
 	// 유적지 Stamp 하위 7개
-    stmt = con.prepareStatement("select * from treasure order by stampNum+0 asc limit 7");
+    stmt = con.prepareStatement("select * from treasure where (idx=80 or idx=81 or idx=90 or idx=100 or idx = 9 or idx =99 or idx=5)");
 
     stmt.executeQuery();    
   	rs = stmt.getResultSet();  
@@ -142,13 +142,7 @@ try{
 			
 		</div>
 	</div>
-	 
-	<div class="w-section footer center" style="position: absolute;bottom: 0px; width: 100%;">
-		<div class="w-container">
-			<div class="footer-text">Copyright LeeKB.</div>
-		</div>
-	</div>
-	
+
 	 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="resources/js/common.js"></script>

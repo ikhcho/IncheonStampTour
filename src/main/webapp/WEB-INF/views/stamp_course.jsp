@@ -155,11 +155,7 @@ try{
 	</div>
 	
 	 
-	<div class="w-section footer center" style="position: absolute;bottom: 0px; width: 100%;">
-		<div class="w-container">
-			<div class="footer-text">Copyright LeeKB.</div>
-		</div>
-	</div>
+
 	
 	 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
