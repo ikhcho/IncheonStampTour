@@ -52,6 +52,18 @@
 			<!-- home.jsp 대신 제일 첫 화면 경로 지정 해주시면됩니다. -->
 			<a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>" class="w-nav-brand brand-link"><h1 class="brand-text">인천 스탬프 투어</h1></a>
 			<nav role="navigation" class="w-nav-menu navigation-menu">
+
+				<!-- home link -->
+				<a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>" class="w-nav-link navigation-link">메인화면</a>
+				
+				<!-- about link -->
+				<a href="<%=request.getContextPath()%>/place" class="w-nav-link navigation-link">추천 여행지</a>
+				
+				<!-- contact link -->
+				<a href="<%=request.getContextPath()%>/restaurant" class="w-nav-link navigation-link">맛집</a>
+				
+				<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>" class="w-nav-link navigation-link">스탬프</a>
+				</nav>
 				
 			</nav>
 			<div class="w-nav-button hamburger-button">

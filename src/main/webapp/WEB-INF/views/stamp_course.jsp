@@ -113,8 +113,23 @@ try{
 		<div class="w-container">
 			
 			<!-- home.jsp 대신 제일 첫 화면 경로 지정 해주시면됩니다. -->
-			<a href="home.jsp" class="w-nav-brand brand-link"><h1 class="brand-text">인천 스탬프 투어</h1></a>
+			<a href="<%=request.getContextPath()%>/stamp_course %>" class="w-nav-brand brand-link"><h1 class="brand-text">오늘의 추천코스</h1></a>
 			<nav role="navigation" class="w-nav-menu navigation-menu">
+
+				<!-- home link -->
+				<a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>" class="w-nav-link navigation-link">메인화면</a>
+				
+				<!-- about link -->
+				<a href="<%=request.getContextPath()%>/place" class="w-nav-link navigation-link">추천 여행지</a>
+				
+				<!-- contact link -->
+				<a href="<%=request.getContextPath()%>/restaurant" class="w-nav-link navigation-link">맛집</a>
+				
+				<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>" class="w-nav-link navigation-link">스탬프</a>
+				
+				<!-- contact link -->
+				<a href="<%=request.getContextPath()%>/recommend_course" class="w-nav-link navigation-link">이달의 추천 코스</a>
+				</nav>
 				
 			</nav>
 			<div class="w-nav-button hamburger-button">
@@ -125,16 +140,13 @@ try{
 	
 	<div class="w-section section">
 		<div class="w-container">
-			<div class="section-title-group">
-				<h2 class="section-heading centered">오늘의 추천코스</h2>
-				<div class="section-subheading center"><%=year%>년 <%=month%>월 <%=date%>일</div>
-			</div>
+			
 			
 			<div style="position : relative">
 			
 			
 				<!-- course 이미지 -->
-				<img width="80%" height="40%" src="resources/img/course2.jpg" style="position: relative;">
+				<img width="80%" height="60%" src="resources/img/course2.jpg" style="position: relative;">
 
 
 				<!-- 유적지 제목 정보 -->

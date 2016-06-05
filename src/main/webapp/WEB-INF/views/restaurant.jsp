@@ -42,10 +42,12 @@
 <a href="<%=request.getContextPath()%>/home?log=<%=session.getAttribute("log") %>" class="w-nav-link navigation-link">메인화면</a>
 
 <!-- about link -->
-<a href="/about" class="w-nav-link navigation-link">추천코스</a>
+<a href="<%=request.getContextPath()%>/course" class="w-nav-link navigation-link">추천코스</a>
 
 <!-- contact link -->
 <a href="<%=request.getContextPath()%>/place" class="w-nav-link navigation-link">추천 여행지</a>
+
+<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>" class="w-nav-link navigation-link">스탬프</a>
 
 </nav>
 <div class="w-nav-button menu-button">
