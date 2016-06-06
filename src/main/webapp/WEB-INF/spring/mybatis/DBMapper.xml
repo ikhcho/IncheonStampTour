@@ -18,13 +18,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE id=#{id}
 	</select>
 	
-	<insert id="saveStamp" parameterType="com.stamp.stamp.StampVo">
-		INSERT INTO stamp(stampNum)
-		VALUES (#{stampNUM})
-	</insert>
+	<update id="updateStamp" parameterType="String">
+		UPDATE stamp 
+		SET p2="yes"
+		WHERE Sid=#{id}
+	</update>
 	
 	<select id="searchStamp" parameterType="String" resultType="com.stamp.stamp.StampVo">
-		SELECT Sid, stampNUM
+		SELECT *
+		FROM stamp
+		WHERE Sid=#{Sid}
+	</select>
+	
+	<select id="searchLocation" parameterType="String" resultType="com.stamp.stamp.StampVo">
+		SELECT *
+		FROM stamptour.location, stamptour.treasure WHERE stamptour.location.name = stamptour.treasure.title AND stamptour.location.mac=#{mac}
+	</select>
+	
+	<select id="SearchAllstamp" parameterType="String" resultType="com.stamp.stamp.StampVo">
+		SELECT *
 		FROM stamp
 		WHERE Sid=#{Sid}
 	</select>

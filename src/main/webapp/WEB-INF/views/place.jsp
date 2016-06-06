@@ -18,7 +18,7 @@
 <html data-wf-site="574103e2762794412692e927" data-wf-page="574103e3762794412692e92b" data-wf-status="1" data-wf-domain="yoseph-jangs-first-site.webflow.io">
 
 <head>
-<meta charset="utf-8">
+
 
 <!-- header title -->
 <title>인천 스탬프 투어</title>

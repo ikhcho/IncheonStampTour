@@ -139,7 +139,6 @@ public class HomeController {
 				return "stamp_course";
 			}
 			
-			
 			@RequestMapping(value="/place" , method=RequestMethod.GET)
 			public ModelAndView place(){
 				List<TreasureVo> LTV = dService.SearchTreasure(); //Strign Sid : session id 쓸것 
@@ -160,12 +159,22 @@ public class HomeController {
 	
 			@RequestMapping(value="/stamp" , method=RequestMethod.GET)
 			public ModelAndView stamp(@RequestParam(value = "Sid" , required=false, defaultValue="1") String Sid){
-				StampVo sv = sService.SearchStamp(Sid); //Strign Sid : session id 쓸것 
+				StampVo sv = sService.SearchStamp(Sid);
 				ModelAndView mv = new ModelAndView();
 				mv.addObject("sv", sv);
 				mv.setViewName("stamp");
-				return mv;
+				return mv;	
 			} 
+			
+			@RequestMapping(value="arduino_request" , method=RequestMethod.GET)
+			public ModelAndView arduino_request(@RequestParam(value = "mac" , required=false, defaultValue="1") String mac ){
+				StampVo sv = sService.SearchLocation(mac);
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("sv", sv);
+				mv.setViewName("arduino_request");
+				return mv;
+			}
+		
 			
 			//파싱페이지
 			@RequestMapping(value="/totreasure")

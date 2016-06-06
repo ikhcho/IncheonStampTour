@@ -1,8 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
+
 <%@ page import="com.stamp.stamp.StampVo" %>
 <%@ page import="com.stamp.stamp.StampService" %>
+
+<%@page import="com.stamp.data.TreasureVo"%>
+<%
+	int count=0;
+	StampVo sv = (StampVo) request.getAttribute("sv");
+
+	session.setAttribute("mac", "88C25532F0AB");
+	if(session.getAttribute("Sid") != "noid")
+	{
+	if(sv.getP1().equals("yes")) count++;
+	if(sv.getP2().equals("yes")) count++;
+	if(sv.getP3().equals("yes")) count++;
+	if(sv.getP4().equals("yes")) count++;
+	if(sv.getP5().equals("yes")) count++;
+	if(sv.getP6().equals("yes")) count++;
+	if(sv.getP7().equals("yes")) count++;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +59,11 @@
 	background-repeat: no-repeat;
 }
 #stamp{
-	width:80%;
+	border-style: outset;
+    border-width: 5px;
+	width:90%;
+	background-color:#ffffff;
 	margin-top:80px;
-	background-color:#9999ff;
 }
 #stamp_btn{
 	float:right;
@@ -58,11 +77,10 @@
 }
 </style>
 
-
 </head>
 <body>
 <div data-role="page" data-theme="a" id="background" height="wrapped">
-		<div style="width:80%"class="container">
+		<div style="width:90%"class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-4 col-md-offset-4">
 					<center>
@@ -71,22 +89,101 @@
 						<br/>
 						
 						<div >
-							<button id="stamp_btn"></button>
+							<a href="<%= request.getContextPath()%>/arduino_request?mac=<%=session.getAttribute("mac") %>">
+							<button id= stamp_btn></button></a>
 						</div>
 						<div id="stamp">
 							<div style="margin-bottom:5px">
-							<h4 align="center"> <%out.println(session.getAttribute("Sid"));%> 회원님은 <br/>
-								현재 ${sv.getStampNum()}개의 스탬프가 있습니다.</h4>
-							</div>
-							<div style="margin-top:10px;">
-								<%
-									StampVo sv = (StampVo) request.getAttribute("sv");
-							
-									for(int i=0; i<sv.getStampNum(); i++)
+							<%
+									if(session.getAttribute("Sid").equals("noid"))
 									{
-										out.print("<img src=resources/img/stamp_sign.png>");
+							%>
+							<h2><a href="<%=request.getContextPath()%>/">로그인</a> 후 이용해주세요</h2>
+							
+							<%
+									}else{
+							%>
+							
+							
+							<h4 align="center"> <%=session.getAttribute("Sid")%> 회원님은 <br/>
+							현재 
+							<%
+							out.print(count);	
+							out.print("개의 스탬프가 있습니다.</h4>");
 									}
-								%>
+							%>
+
+							</div>
+							
+							<div style="margin-top:10px;">
+							<table width="100%"align="center" border="1" cellspacing="0" cellpadding="4" >
+							<tr>
+							<td >연미정</td><td>용궁사</td><td>강화산성</td><td width="80px">강화고려궁지</td>
+							</tr>
+							<tr>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP1().equals("yes"))
+								{
+							%>
+							<img src="resources/img/st.png">
+							<%}%>
+							</td>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP2().equals("yes"))
+								{
+							%>							
+							<img src="resources/img/st.png">
+							<%}%>
+							</td>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP3().equals("yes"))
+								{
+							%>							
+							<img src="resources/img/st.png">							
+							<%}%>
+							</td>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP4().equals("yes"))
+								{
+							%>
+							<img src="resources/img/st.png">
+							<%}%>
+							</td>
+							</tr>
+							<tr>
+							<td>홍예문</td><td>석릉</td><td>용흥궁</td>
+							</tr>
+							<tr>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP5().equals("yes"))
+								{
+							%>							
+							<img src="resources/img/st.png">
+							<%}%>
+							</td>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP6().equals("yes"))
+								{
+							%>						
+							<img src="resources/img/st.png">						
+							<%}%>
+							</td>
+							<td>
+							<%
+								if(session.getAttribute("Sid") != "noid" && sv.getP7().equals("yes"))
+								{
+							%>						
+							<img src="resources/img/st.png">						
+							<%}%>
+							</td>
+							</tr>
+							</table>
 							</div>
 							<br/>
 							<div >

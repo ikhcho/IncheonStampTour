@@ -11,12 +11,17 @@
 	int c_counter=0;
 	boolean select_f=false;
 	boolean select_c=false;
-
+	String title="";
 	if(request.getParameter("redirection").equals("festival"))
 	{
 		select_f=true;
+		title = "축제";
 	}
-	else if(request.getParameter("redirection").equals("culture")) select_c=true;
+	else if(request.getParameter("redirection").equals("culture"))
+	{
+		select_c=true;
+		title = "행사";
+	}
 %>
 
 <!DOCTYPE html>
@@ -151,7 +156,6 @@
 }
 </style>
 
-
 </head>
 <body >
 <div data-role="page" data-theme="a" id="background" height="wrapped">
@@ -159,7 +163,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<br/><br/>
-					<h1 align="center" "text-center login-title" id="title" ><%=cal.get(Calendar.MONTH)+1 %>월달 축제</h1>
+					<h1 align="center" "text-center login-title" id="title" ><%=cal.get(Calendar.MONTH)+1 %>월달 <%=title %></h1>
 					<br/>
 					<div>
 	 				<form method="get" action="festival">

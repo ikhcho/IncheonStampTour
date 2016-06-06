@@ -28,7 +28,7 @@ try{
 
   	List<TreasureVo> list = new ArrayList<TreasureVo>();
   	
-  	String left[] = {"14","49","78","60","20","15","70"};
+  	String left[] = {"14","49","78","60","20","25","80"};
   	String top[]  = {"18","12","23","49","65","95","92"};
 
   	int i=0;

@@ -79,9 +79,9 @@
 								</div>
 								<div id="submit">
 									<button class="btn btn-lg btn-primary btn-block"
-										onclick="loginCheck()">Login</button>
+										onclick="loginCheck()">로그인</button>
 									<button class="btn btn-lg btn-primary btn-block"
-										onclick="RegisterCheck()">Register</button>
+										onclick="RegisterCheck()">회원가입</button>
 								</div>
 							</form>
 						</div>

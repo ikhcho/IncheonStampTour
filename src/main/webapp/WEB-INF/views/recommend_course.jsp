@@ -30,7 +30,7 @@ try{
 
   	List<TreasureVo> list = new ArrayList<TreasureVo>();
   	
-  	String left[] = {"14","49","78","60","20","15","70"};
+  	String left[] = {"14","49","78","60","20","25","80"};
   	String top[]  = {"18","12","23","49","65","95","92"};
   	
   	int i=0;
@@ -113,7 +113,7 @@ try{
 		<div class="w-container">
 			
 			<!-- home.jsp 대신 제일 첫 화면 경로 지정 해주시면됩니다. -->
-			<a href="<%=request.getContextPath()%>/recommend_course %>" class="w-nav-brand brand-link"><h1 class="brand-text"><%=month %>달의 추천코스</h1></a>
+			<a href="<%=request.getContextPath()%>/recommend_course" class="w-nav-brand brand-link"><h1 class="brand-text"><%=month %>월의 추천코스</h1></a>
 			<nav role="navigation" class="w-nav-menu navigation-menu">
 
 				<!-- home link -->

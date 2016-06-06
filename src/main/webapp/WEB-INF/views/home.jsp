@@ -143,6 +143,7 @@ else
 		<br/><br/>
 		<h1 class="text-center login-title" id="title" >인천 스탬프 투어</h1>
 		<br/>
+		<a href="resources/img/map.jpg"><img src=resources/img/map.jpg style="float:left; width:60px; height:60px; margin-left:20px;"></a>
 				<div style="float: right; width: 160px; height: 80px" id="cupload" class="breadcrumbs">
 					<div style="float: left; width: 60px; height:60px;" id='weatherView1'></div>
 					<div style="float: right; width: 100px; height:60px;" id='weatherView2'></div>
@@ -151,6 +152,8 @@ else
 		
 		<div data-role="content" data-inset="true" id="manubox">
 			<div>
+				<a href="<%=request.getContextPath()%>/place" style="float:left;margin-left:40px">추천 여행지</a>
+				<a href="<%=request.getContextPath()%>/course" style="float:right;margin-right:40px">추천 코스</a>
 				<div style="float: left; width: 50%;" id="place">
 						<a href="<%=request.getContextPath()%>/place">
 						<img src=resources/img/place.jpg style="width: 100%"></a>
@@ -159,8 +162,10 @@ else
 					<a href="<%=request.getContextPath()%>/course">
 					<img src=resources/img/course.jpg style="width: 100%"></a>	
 				</div>
+				
 			</div>
 			<div>
+				
 				<div style="float: left; width: 50%;" id="restaurant">
 						<a href="<%=request.getContextPath()%>/restaurant">
 						<img src=resources/img/restaurant.jpg style="width: 100%"></a>
@@ -169,8 +174,13 @@ else
 					<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>">
 					<img src=resources/img/stamp.jpg style="width: 100%"></a>	
 				</div>
+				<div><a href="<%=request.getContextPath()%>/restaurant" style="float:left;margin-left:40px">추천 맛집</a>
+				<a href="<%=request.getContextPath()%>/stamp?Sid=<%=session.getAttribute("Sid") %>" style="float:right;margin-right:50px">스탬프</a>
+				</div>
 			</div>
+			
 		</div>
+		
 		<div class="bottom"></div>
 	</center>
 	</div>

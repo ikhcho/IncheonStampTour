@@ -120,9 +120,11 @@
 				<div class="col-sm-6 col-md-4 col-md-offset-4">
 					<center>
 					<br/>
-						<h3 class="text-center login-title" id="title" ><%= request.getParameter("mem_id") %>님의 회원가입이 완료되었습니다.</h3>
-						<img src="resources/img/confirm.jpg" Style="width:80%"><br/>
-						<a href="<%=request.getContextPath()%>/"> <button Style="width:60%">로그인</button></a>
+						<div style="width:80%">
+							<h3 class="text-center login-title" id="title" ><%= request.getParameter("mem_id") %>님 <br/>회원가입이 완료되었습니다.</h3>
+							<img src="resources/img/confirm.jpg" Style="width:90%"><br/>
+							<a href="<%=request.getContextPath()%>/"> <button Style="width:90%">로그인</button></a>
+						</div>
 					</center>
 				</div>
 			</div>
